@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>about:blank</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #000000;
+            color: #333333;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        
+        .cloak-content {
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+        
+        .cloak-text {
+            font-size: 18px;
+            color: #666666;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+        
+        .cloak-subtext {
+            font-size: 12px;
+            color: #444444;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            opacity: 0;
+            animation: delayedFade 3s ease-in-out 1s forwards;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        @keyframes delayedFade {
+            to { opacity: 0.3; }
+        }
+        
+        /* Hide everything after load to mimic real about:blank */
+        .cloak-content.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="cloak-content" id="cloakContent">
+        <div class="cloak-text">about:blank</div>
+    </div>
+    <div class="cloak-subtext">Redio Cloak Active</div>
+
+    <script>
+        // Mimic real about:blank behavior
+        setTimeout(() => {
+            document.getElementById('cloakContent').classList.add('hidden');
+        }, 2000);
+        
+        // Random behavior to appear more natural
+        setInterval(() => {
+            if (Math.random() > 0.95) {
+                document.getElementById('cloakContent').classList.toggle('hidden');
+                setTimeout(() => document.getElementById('cloakContent').classList.toggle('hidden'), 500);
+            }
+        }, 10000);
+    </script>
+</body>
+</html>
