@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redio Pro - Ultimate Web Portal</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">
+                    <div class="logo-icon">R</div>
+                    <div class="logo-text">Redio Pro</div>
+                </a>
+                
+                <nav class="nav-main">
+                    <a href="/" class="nav-link active">Home</a>
+                    <a href="/cloak" class="nav-link">Cloak</a>
+                    <a href="/games" class="nav-link">Games</a>
+                    <a href="#" class="nav-link" id="browser-toggle">Browser</a>
+                    <a href="#" class="nav-link" id="ai-toggle">AI Chat</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Redio Pro</h1>
+            <p class="hero-subtitle">
+                The most advanced web portal with built-in proxy, automatic cloaking, AI assistant, and unlimited browsing capabilities.
+            </p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">10M+</span>
+                    <div class="stat-label">Active Users</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">99.9%</span>
+                    <div class="stat-label">Uptime</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">∞</span>
+                    <div class="stat-label">Possibilities</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-box">
+                <input type="text" class="search-input" id="search-input" placeholder="Search the web or enter any URL...">
+                <button class="search-btn" id="search-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.3-4.3"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Redio Pro?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3 class="feature-title">Auto Cloaking</h3>
+                    <p class="feature-desc">Automatic about:blank cloaking keeps your browsing private and secure from prying eyes.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3 class="feature-title">Built-in Proxy</h3>
+                    <p class="feature-desc">Access any website through our advanced proxy system that bypasses restrictions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3 class="feature-title">AI Assistant</h3>
+                    <p class="feature-desc">Intelligent AI that helps with research, coding, explanations, and much more.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3 class="feature-title">Full Screen Browser</h3>
+                    <p class="feature-desc">Full-screen browsing experience with tab support and advanced navigation.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Lightning Fast</h3>
+                    <p class="feature-desc">Optimized performance with instant loading times and smooth browsing.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3 class="feature-title">Game Center</h3>
+                    <p class="feature-desc">Access to popular games and entertainment directly from the portal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Apps Section -->
+    <section class="apps-section">
+        <div class="container">
+            <h2 class="section-title">Quick Access</h2>
+            <div class="apps-grid" id="apps-grid">
+                <!-- Apps will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Assistant -->
+    <div class="ai-assistant">
+        <button class="ai-toggle" id="ai-toggle-btn">🤖</button>
+        
+        <div class="ai-panel" id="ai-panel">
+            <div class="ai-header">
+                <div class="ai-title">
+                    <span>Redio AI Assistant</span>
+                </div>
+                <div class="ai-controls">
+                    <button class="ai-btn" id="ai-clear">🗑️</button>
+                    <button class="ai-btn" id="ai-close">✕</button>
+                </div>
+            </div>
+            
+            <div class="ai-chat" id="ai-chat">
+                <div class="message bot">
+                    <div class="avatar">AI</div>
+                    <div class="message-content">
+                        <strong>AI Online</strong><br>
+                        Hello! I'm Redio AI, your intelligent assistant. I can help you with research, explanations, coding, problem-solving, and much more. How can I assist you today?
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ai-input-area">
+                <div class="quick-actions">
+                    <button class="quick-action" data-prompt="Research machine learning">Research</button>
+                    <button class="quick-action" data-prompt="Explain artificial intelligence">Explain</button>
+                    <button class="quick-action" data-prompt="Write Python code for web scraping">Code</button>
+                    <button class="quick-action" data-prompt="Summarize blockchain technology">Summarize</button>
+                </div>
+                
+                <div class="input-group">
+                    <input type="text" class="ai-input" id="ai-input" placeholder="Ask me anything...">
+                    <button class="send-btn" id="ai-send">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22,2 15,22 11,13 2,9"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full Screen Browser -->
+    <div class="browser-container" id="browser-container">
+        <div class="browser-header">
+            <div class="browser-tabs" id="browser-tabs">
+                <div class="tab active" data-tab-id="tab-1">
+                    <span class="tab-title">Redio Home</span>
+                    <button class="tab-close">✕</button>
+                </div>
+            </div>
+            
+            <div class="browser-nav">
+                <button class="nav-btn" id="browser-back" disabled>←</button>
+                <button class="nav-btn" id="browser-forward" disabled>→</button>
+                <button class="nav-btn" id="browser-reload">↻</button>
+                <button class="nav-btn" id="browser-home">🏠</button>
+                
+                <input type="text" class="address-bar" id="address-bar" placeholder="Enter URL or search...">
+                
+                <button class="nav-btn" id="browser-close">✕</button>
+            </div>
+        </div>
+        
+        <div class="browser-content">
+            <iframe class="browser-frame" id="browser-frame" data-tab-id="tab-1" src="/"></iframe>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Redio Pro</h3>
+                    <p>The ultimate web portal experience with advanced features and unparalleled customization.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Features</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">AI Assistant</a></li>
+                        <li><a href="#">Secure Browser</a></li>
+                        <li><a href="#">Auto Cloaking</a></li>
+                        <li><a href="#">Built-in Proxy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="/cloak">Cloak Page</a></li>
+                        <li><a href="/games">Game Center</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Redio Pro. All rights reserved. | Built with ❤️ for the open web</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+</html>
