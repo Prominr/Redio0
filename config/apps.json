@@ -1,66 +1,229 @@
 [
-    {
-        "id": "calculator",
-        "name": "Calculator",
-        "description": "Scientific calculator",
-        "url": "/apps/calculator.html",
-        "icon": "fas fa-calculator",
-        "category": "Tools"
-    },
-    {
-        "id": "notes",
-        "name": "Notes",
-        "description": "Take notes and save them",
-        "url": "/apps/notes.html",
-        "icon": "fas fa-sticky-note",
-        "category": "Productivity"
-    },
-    {
-        "id": "clock",
-        "name": "Clock",
-        "description": "World clock and timer",
-        "url": "/apps/clock.html",
-        "icon": "fas fa-clock",
-        "category": "Tools"
-    },
-    {
-        "id": "calendar",
-        "name": "Calendar",
-        "description": "Interactive calendar",
-        "url": "/apps/calendar.html",
-        "icon": "fas fa-calendar",
-        "category": "Productivity"
-    },
-    {
-        "id": "draw",
-        "name": "Drawing Board",
-        "description": "Online drawing tool",
-        "url": "/apps/draw.html",
-        "icon": "fas fa-paint-brush",
-        "category": "Creativity"
-    },
-    {
-        "id": "texteditor",
-        "name": "Text Editor",
-        "description": "Simple text editor",
-        "url": "/apps/texteditor.html",
-        "icon": "fas fa-file-alt",
-        "category": "Productivity"
-    },
-    {
-        "id": "weather",
-        "name": "Weather",
-        "description": "Weather forecast",
-        "url": "/apps/weather.html",
-        "icon": "fas fa-cloud-sun",
-        "category": "Information"
-    },
-    {
-        "id": "currency",
-        "name": "Currency Converter",
-        "description": "Convert currencies",
-        "url": "/apps/currency.html",
-        "icon": "fas fa-money-bill-wave",
-        "category": "Tools"
-    }
+  {
+    "id": "google_docs",
+    "name": "Google Docs",
+    "description": "Create and edit documents online",
+    "url": "https://docs.google.com/document/create",
+    "icon": "fas fa-file-word",
+    "category": "Productivity",
+    "type": "webapp",
+    "proxy": true
+  },
+  {
+    "id": "google_sheets",
+    "name": "Google Sheets",
+    "description": "Create and edit spreadsheets online",
+    "url": "https://docs.google.com/spreadsheets/create",
+    "icon": "fas fa-table",
+    "category": "Productivity",
+    "type": "webapp",
+    "proxy": true
+  },
+  {
+    "id": "google_slides",
+    "name": "Google Slides",
+    "description": "Create and edit presentations online",
+    "url": "https://docs.google.com/presentation/create",
+    "icon": "fas fa-presentation",
+    "category": "Productivity",
+    "type": "webapp",
+    "proxy": true
+  },
+  {
+    "id": "canva",
+    "name": "Canva",
+    "description": "Graphic design platform",
+    "url": "https://www.canva.com",
+    "icon": "fas fa-palette",
+    "category": "Creativity",
+    "type": "webapp",
+    "proxy": true
+  },
+  {
+    "id": "pixlr",
+    "name": "Pixlr Editor",
+    "description": "Free online photo editor",
+    "url": "https://pixlr.com/editor/",
+    "icon": "fas fa-edit",
+    "category": "Creativity",
+    "type": "webapp",
+    "proxy": true
+  },
+  {
+    "id": "notion",
+    "name": "Notion",
+    "description": "All-in-one workspace",
+    "url": "https://www.notion.so",
+    "icon": "fas fa-sticky-note",
+    "category": "Productivity",
+    "type": "webapp",
+    "proxy": true
+  },
+  {
+    "id": "figma",
+    "name": "Figma",
+    "description": "Collaborative design tool",
+    "url": "https://www.figma.com",
+    "icon": "fas fa-pen-nib",
+    "category": "Design",
+    "type": "webapp",
+    "proxy": true
+  },
+  {
+    "id": "github",
+    "name": "GitHub",
+    "description": "Code hosting and collaboration",
+    "url": "https://github.com",
+    "icon": "fab fa-github",
+    "category": "Development",
+    "type": "webapp",
+    "proxy": true
+  },
+  {
+    "id": "replit",
+    "name": "Replit",
+    "description": "Online coding platform",
+    "url": "https://replit.com",
+    "icon": "fas fa-code",
+    "category": "Development",
+    "type": "webapp",
+    "proxy": true
+  },
+  {
+    "id": "spotify",
+    "name": "Spotify Web",
+    "description": "Music streaming service",
+    "url": "https://open.spotify.com",
+    "icon": "fab fa-spotify",
+    "category": "Music",
+    "type": "webapp",
+    "proxy": true
+  },
+  {
+    "id": "youtube_music",
+    "name": "YouTube Music",
+    "description": "Music streaming from YouTube",
+    "url": "https://music.youtube.com",
+    "icon": "fab fa-youtube",
+    "category": "Music",
+    "type": "webapp",
+    "proxy": true
+  },
+  {
+    "id": "netflix",
+    "name": "Netflix",
+    "description": "Streaming movies and TV shows",
+    "url": "https://www.netflix.com",
+    "icon": "fas fa-film",
+    "category": "Entertainment",
+    "type": "webapp",
+    "proxy": true
+  },
+  {
+    "id": "twitch",
+    "name": "Twitch",
+    "description": "Live streaming platform",
+    "url": "https://www.twitch.tv",
+    "icon": "fab fa-twitch",
+    "category": "Entertainment",
+    "type": "webapp",
+    "proxy": true
+  },
+  {
+    "id": "discord",
+    "name": "Discord",
+    "description": "Voice and text chat",
+    "url": "https://discord.com/app",
+    "icon": "fab fa-discord",
+    "category": "Communication",
+    "type": "webapp",
+    "proxy": true
+  },
+  {
+    "id": "whatsapp_web",
+    "name": "WhatsApp Web",
+    "description": "WhatsApp on your computer",
+    "url": "https://web.whatsapp.com",
+    "icon": "fab fa-whatsapp",
+    "category": "Communication",
+    "type": "webapp",
+    "proxy": true
+  },
+  {
+    "id": "gmail",
+    "name": "Gmail",
+    "description": "Email by Google",
+    "url": "https://mail.google.com",
+    "icon": "fas fa-envelope",
+    "category": "Communication",
+    "type": "webapp",
+    "proxy": true
+  },
+  {
+    "id": "calendar",
+    "name": "Google Calendar",
+    "description": "Online calendar",
+    "url": "https://calendar.google.com",
+    "icon": "fas fa-calendar",
+    "category": "Productivity",
+    "type": "webapp",
+    "proxy": true
+  },
+  {
+    "id": "drive",
+    "name": "Google Drive",
+    "description": "Cloud storage",
+    "url": "https://drive.google.com",
+    "icon": "fab fa-google-drive",
+    "category": "Storage",
+    "type": "webapp",
+    "proxy": true
+  },
+  {
+    "id": "dropbox",
+    "name": "Dropbox",
+    "description": "Cloud storage service",
+    "url": "https://www.dropbox.com",
+    "icon": "fab fa-dropbox",
+    "category": "Storage",
+    "type": "webapp",
+    "proxy": true
+  },
+  {
+    "id": "zoom",
+    "name": "Zoom",
+    "description": "Video conferencing",
+    "url": "https://zoom.us",
+    "icon": "fas fa-video",
+    "category": "Communication",
+    "type": "webapp",
+    "proxy": true
+  },
+  {
+    "id": "calculator",
+    "name": "Calculator",
+    "description": "Scientific calculator",
+    "url": "/apps/calculator.html",
+    "icon": "fas fa-calculator",
+    "category": "Tools",
+    "type": "builtin"
+  },
+  {
+    "id": "notes",
+    "name": "Notes",
+    "description": "Take and save notes",
+    "url": "/apps/notes.html",
+    "icon": "fas fa-sticky-note",
+    "category": "Productivity",
+    "type": "builtin"
+  },
+  {
+    "id": "whiteboard",
+    "name": "Whiteboard",
+    "description": "Digital drawing board",
+    "url": "/apps/draw.html",
+    "icon": "fas fa-paint-brush",
+    "category": "Creativity",
+    "type": "builtin"
+  }
 ]

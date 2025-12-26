@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Error Fixer - Redio</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/themes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .error-fixer-page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        .fixer-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .fixer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .input-section, .output-section {
+            background: var(--surface-color);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .section-header h2 {
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+        
+        .input-methods {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .method-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .method-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .method-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary-color);
+        }
+        
+        .input-area {
+            margin-bottom: 20px;
+        }
+        
+        .input-area textarea {
+            width: 100%;
+            min-height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            color: var(--text-color);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            resize: vertical;
+        }
+        
+        .input-area textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .input-area input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+        
+        .input-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .option-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .option-group label {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .option-group select,
+        .option-group input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 10px;
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+        
+        .analyze-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .analyze-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(99, 102, 241, 0.3);
+        }
+        
+        .analyze-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .analysis-results {
+            margin-top: 30px;
+        }
+        
+        .score-card {
+            text-align: center;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .score-value {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .score-value.excellent { color: var(--success-color); }
+        .score-value.good { color: #3b82f6; }
+        .score-value.fair { color: var(--warning-color); }
+        .score-value.poor { color: var(--danger-color); }
+        
+        .score-label {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+        
+        .score-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .issues-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .issue-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid var(--danger-color);
+        }
+        
+        .issue-item.warning {
+            border-left-color: var(--warning-color);
+        }
+        
+        .issue-item.info {
+            border-left-color: var(--primary-color);
+        }
+        
+        .issue-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .issue-title {
+            font-weight: 600;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .issue-severity {
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 12px;
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger-color);
+        }
+        
+        .issue-severity.warning {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning-color);
+        }
+        
+        .issue-severity.info {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+        
+        .issue-description {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .issue-fix {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
+        }
+        
+        .fix-header {
+            font-weight: 600;
+            color: var(--success-color);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .fix-code {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 6px;
+            padding: 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .fixed-preview {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .copy-btn {
+            background: rgba(99, 102, 241, 0.2);
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .copy-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .copy-btn.copied {
+            background: var(--success-color);
+            border-color: var(--success-color);
+            color: white;
+        }
+        
+        .preview-area {
+            max-height: 400px;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            color: var(--text-secondary);
+        }
+        
+        .loading.active {
+            display: block;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+        }
+        
+        .empty-state i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-fixer-page">
+        <div class="page-header">
+            <h1><i class="fas fa-magic"></i> AI Error Fixer</h1>
+            <p>Automatically detect and fix website errors with AI-powered analysis</p>
+        </div>
+        
+        <div class="fixer-container">
+            <div class="input-section">
+                <div class="section-header">
+                    <i class="fas fa-code"></i>
+                    <h2>Input</h2>
+                </div>
+                
+                <div class="input-methods">
+                    <button class="method-btn active" data-method="url">
+                        <i class="fas fa-link"></i> URL
+                    </button>
+                    <button class="method-btn" data-method="html">
+                        <i class="fas fa-code"></i> HTML Code
+                    </button>
+                    <button class="method-btn" data-method="errors">
+                        <i class="fas fa-bug"></i> Error Logs
+                    </button>
+                </div>
+                
+                <div class="input-area">
+                    <div id="urlInput" class="input-content">
+                        <input type="url" id="websiteUrl" placeholder="https://example.com">
+                        <div style="margin-top: 10px; font-size: 0.9rem; color: var(--text-secondary);">
+                            <i class="fas fa-info-circle"></i> Enter a website URL to analyze
+                        </div>
+                    </div>
+                    
+                    <div id="htmlInput" class="input-content" style="display: none;">
+                        <textarea id="htmlCode" placeholder="Paste your HTML code here..."></textarea>
+                    </div>
+                    
+                    <div id="errorsInput" class="input-content" style="display: none;">
+                        <textarea id="errorLogs" placeholder="Paste error logs or console output..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="input-options">
+                    <div class="option-group">
+                        <label for="analysisType">
+                            <i class="fas fa-search"></i> Analysis Type
+                        </label>
+                        <select id="analysisType">
+                            <option value="full">Full Analysis</option>
+                            <option value="html">HTML Structure</option>
+                            <option value="css">CSS & Styling</option>
+                            <option value="js">JavaScript</option>
+                            <option value="performance">Performance</option>
+                            <option value="accessibility">Accessibility</option>
+                        </select>
+                    </div>
+                    
+                    <div class="option-group">
+                        <label for="fixLevel">
+                            <i class="fas fa-wrench"></i> Fix Level
+                        </label>
+                        <select id="fixLevel">
+                            <option value="auto">Auto-fix All</option>
+                            <option value="suggest">Suggest Fixes</option>
+                            <option value="critical">Critical Only</option>
+                        </select>
+                    </div>
+                    
+                    <div class="option-group">
+                        <label for="targetBrowser">
+                            <i class="fas fa-globe"></i> Target Browser
+                        </label>
+                        <select id="targetBrowser">
+                            <option value="all">All Browsers</option>
+                            <option value="chrome">Chrome</option>
+                            <option value="firefox">Firefox</option>
+                            <option value="safari">Safari</option>
+                            <option value="edge">Edge</option>
+                            <option value="mobile">Mobile</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button class="analyze-btn" id="analyzeBtn" onclick="analyzeWebsite()">
+                    <i class="fas fa-magic"></i> Analyze & Fix Errors
+                </button>
+                
+                <div class="loading" id="loading">
+                    <div class="loading-spinner"></div>
+                    <h3>AI is analyzing your website...</h3>
+                    <p>Detecting errors and generating fixes</p>
+                </div>
+            </div>
+            
+            <div class="output-section">
+                <div class="section-header">
+                    <i class="fas fa-chart-line"></i>
+                    <h2>Results</h2>
+                </div>
+                
+                <div id="resultsContent">
+                    <div class="empty-state">
+                        <i class="fas fa-chart-bar"></i>
+                        <h3>No Analysis Yet</h3>
+                        <p>Enter a URL or code above to start analysis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="stats-grid" id="statsGrid" style="display: none;">
+            <div class="stat-card">
+                <div class="stat-value" id="totalIssues">0</div>
+                <div class="stat-label">Total Issues</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="criticalIssues">0</div>
+                <div class="stat-label">Critical</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="warnings">0</div>
+                <div class="stat-label">Warnings</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="fixedIssues">0</div>
+                <div class="stat-label">Auto-fixed</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        class ErrorFixer {
+            constructor() {
+                this.currentMethod = 'url';
+                this.analysisResults = null;
+                this.init();
+            }
+            
+            init() {
+                this.setupEventListeners();
+                this.updateMethodUI();
+            }
+            
+            setupEventListeners() {
+                // Method buttons
+                document.querySelectorAll('.method-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        this.setMethod(btn.dataset.method);
+                    });
+                });
+                
+                // Enter key in URL input
+                document.getElementById('websiteUrl').addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        this.analyzeWebsite();
+                    }
+                });
+            }
+            
+            setMethod(method) {
+                this.currentMethod = method;
+                this.updateMethodUI();
+            }
+            
+            updateMethodUI() {
+                // Update active button
+                document.querySelectorAll('.method-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.method === this.currentMethod);
+                });
+                
+                // Show/hide input areas
+                document.querySelectorAll('.input-content').forEach(content => {
+                    content.style.display = 'none';
+                });
+                
+                document.getElementById(`${this.currentMethod}Input`).style.display = 'block';
+            }
+            
+            async analyzeWebsite() {
+                const input = this.getInput();
+                
+                if (!input) {
+                    this.showError('Please provide input to analyze');
+                    return;
+                }
+                
+                // Show loading
+                document.getElementById('loading').classList.add('active');
+                document.getElementById('analyzeBtn').disabled = true;
+                
+                try {
+                    let analysis;
+                    
+                    if (this.currentMethod === 'url') {
+                        analysis = await this.analyzeByUrl(input);
+                    } else if (this.currentMethod === 'html') {
+                        analysis = await this.analyzeHTML(input);
+                    } else {
+                        analysis = await this.analyzeErrors(input);
+                    }
+                    
+                    this.analysisResults = analysis;
+                    this.displayResults(analysis);
+                    
+                } catch (error) {
+                    console.error('Analysis error:', error);
+                    this.showError('Analysis failed: ' + error.message);
+                } finally {
+                    document.getElementById('loading').classList.remove('active');
+                    document.getElementById('analyzeBtn').disabled = false;
+                }
+            }
+            
+            getInput() {
+                switch (this.currentMethod) {
+                    case 'url':
+                        return document.getElementById('websiteUrl').value.trim();
+                    case 'html':
+                        return document.getElementById('htmlCode').value.trim();
+                    case 'errors':
+                        return document.getElementById('errorLogs').value.trim();
+                    default:
+                        return '';
+                }
+            }
+            
+            async analyzeByUrl(url) {
+                // Fetch website through proxy
+                const proxyUrl = `/proxy/fetch?url=${encodeURIComponent(url)}`;
+                
+                const response = await fetch(proxyUrl);
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch website: ${response.status}`);
+                }
+                
+                const html = await response.text();
+                const analysisType = document.getElementById('analysisType').value;
+                const fixLevel = document.getElementById('fixLevel').value;
+                
+                // Send to AI for analysis
+                const aiResponse = await fetch('/api/ai/fix-website', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        url,
+                        html,
+                        errors: [],
+                        analysisType,
+                        fixLevel
+                    })
+                });
+                
+                const data = await aiResponse.json();
+                return data;
+            }
+            
+            async analyzeHTML(html) {
+                const analysisType = document.getElementById('analysisType').value;
+                const fixLevel = document.getElementById('fixLevel').value;
+                
+                const response = await fetch('/api/ai/fix-website', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        url: 'local.html',
+                        html,
+                        errors: [],
+                        analysisType,
+                        fixLevel
+                    })
+                });
+                
+                const data = await response.json();
+                return data;
+            }
+            
+            async analyzeErrors(errorLogs) {
+                // Analyze error logs
+                const errors = errorLogs.split('\n').filter(line => line.trim());
+                
+                const response = await fetch('/api/ai/fix-code', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        code: '// Error analysis mode\n' + errorLogs,
+                        language: 'javascript',
+                        errors: errors.slice(0, 10)
+                    })
+                });
+                
+                const data = await response.json();
+                return {
+                    success: true,
+                    analysis: {
+                        issues: errors.map(err => ({
+                            type: 'error',
+                            severity: 'critical',
+                            description: err,
+                            fix: 'Check error details and fix accordingly'
+                        })),
+                        score: Math.max(100 - errors.length * 10, 0)
+                    },
+                    fixes: data.changes || []
+                };
+            }
+            
+            displayResults(results) {
+                const container = document.getElementById('resultsContent');
+                
+                if (!results.success) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <h3>Analysis Failed</h3>
+                            <p>${results.error || 'Unknown error occurred'}</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                const analysis = results.analysis || {};
+                const fixes = results.fixes || [];
+                const fixedHTML = results.fixedHTML || '';
+                
+                // Calculate score
+                const score = analysis.score || 0;
+                const scoreClass = score >= 90 ? 'excellent' :
+                                 score >= 80 ? 'good' :
+                                 score >= 70 ? 'fair' : 'poor';
+                const scoreLabel = score >= 90 ? 'Excellent' :
+                                 score >= 80 ? 'Good' :
+                                 score >= 70 ? 'Fair' : 'Needs Improvement';
+                
+                // Count issues
+                const issues = analysis.issues || [];
+                const warnings = analysis.warnings || [];
+                const totalIssues = issues.length + warnings.length;
+                const criticalIssues = issues.length;
+                
+                // Update stats
+                document.getElementById('statsGrid').style.display = 'grid';
+                document.getElementById('totalIssues').textContent = totalIssues;
+                document.getElementById('criticalIssues').textContent = criticalIssues;
+                document.getElementById('warnings').textContent = warnings.length;
+                document.getElementById('fixedIssues').textContent = fixes.length;
+                
+                // Build results HTML
+                let resultsHTML = `
+                    <div class="score-card">
+                        <div class="score-value ${scoreClass}">${score}</div>
+                        <div class="score-label">${scoreLabel}</div>
+                        <div class="score-description">
+                            Website health score based on ${totalIssues} detected issues
+                        </div>
+                    </div>
+                `;
+                
+                // Show issues
+                if (issues.length > 0 || warnings.length > 0) {
+                    resultsHTML += `<div class="issues-list">`;
+                    
+                    // Add critical issues
+                    issues.forEach((issue, index) => {
+                        resultsHTML += this.renderIssue(issue, 'critical', index);
+                    });
+                    
+                    // Add warnings
+                    warnings.forEach((warning, index) => {
+                        resultsHTML += this.renderIssue(warning, 'warning', index + issues.length);
+                    });
+                    
+                    resultsHTML += `</div>`;
+                }
+                
+                // Show fixes if available
+                if (fixes.length > 0) {
+                    resultsHTML += `
+                        <div class="fixed-preview">
+                            <div class="preview-header">
+                                <h3><i class="fas fa-check-circle"></i> Fixed Code Preview</h3>
+                                <button class="copy-btn" onclick="copyFixedCode()">
+                                    <i class="fas fa-copy"></i> Copy Fixed Code
+                                </button>
+                            </div>
+                            <div class="preview-area" id="fixedCodePreview">${this.escapeHTML(fixedHTML)}</div>
+                        </div>
+                    `;
+                }
+                
+                container.innerHTML = resultsHTML;
+            }
+            
+            renderIssue(issue, severity, index) {
+                const severityLabel = severity === 'critical' ? 'Critical' :
+                                    severity === 'warning' ? 'Warning' : 'Info';
+                
+                const severityIcon = severity === 'critical' ? 'fas fa-exclamation-circle' :
+                                   severity === 'warning' ? 'fas fa-exclamation-triangle' : 'fas fa-info-circle';
+                
+                let fixHTML = '';
+                if (issue.fix) {
+                    fixHTML = `
+                        <div class="issue-fix">
+                            <div class="fix-header">
+                                <i class="fas fa-wrench"></i> Suggested Fix
+                            </div>
+                            <div class="fix-code">${this.escapeHTML(issue.fix)}</div>
+                        </div>
+                    `;
+                } else if (issue.code) {
+                    fixHTML = `
+                        <div class="issue-fix">
+                            <div class="fix-header">
+                                <i class="fas fa-code"></i> Fix Code
+                            </div>
+                            <div class="fix-code">${this.escapeHTML(issue.code)}</div>
+                        </div>
+                    `;
+                }
+                
+                return `
+                    <div class="issue-item ${severity}">
+                        <div class="issue-header">
+                            <div class="issue-title">
+                                <i class="${severityIcon}"></i>
+                                ${issue.type || 'Issue'} #${index + 1}
+                            </div>
+                            <span class="issue-severity ${severity}">${severityLabel}</span>
+                        </div>
+                        <div class="issue-description">
+                            ${issue.description || issue.fix || 'No description available'}
+                        </div>
+                        ${fixHTML}
+                    </div>
+                `;
+            }
+            
+            escapeHTML(text) {
+                if (!text) return '';
+                return text
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&#039;');
+            }
+            
+            showError(message) {
+                const container = document.getElementById('resultsContent');
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Error</h3>
+                        <p>${message}</p>
+                        <button class="btn primary" onclick="location.reload()" style="margin-top: 20px;">
+                            Try Again
+                        </button>
+                    </div>
+                `;
+            }
+        }
+        
+        // Initialize error fixer
+        const errorFixer = new ErrorFixer();
+        
+        // Global functions
+        function analyzeWebsite() {
+            errorFixer.analyzeWebsite();
+        }
+        
+        function copyFixedCode() {
+            const code = document.getElementById('fixedCodePreview').textContent;
+            navigator.clipboard.writeText(code)
+                .then(() => {
+                    const btn = document.querySelector('.copy-btn');
+                    const originalHTML = btn.innerHTML;
+                    btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    btn.classList.add('copied');
+                    
+                    setTimeout(() => {
+                        btn.innerHTML = originalHTML;
+                        btn.classList.remove('copied');
+                    }, 2000);
+                })
+                .catch(err => {
+                    alert('Failed to copy code: ' + err);
+                });
+        }
+        
+        // Auto-resize textareas
+        document.querySelectorAll('textarea').forEach(textarea => {
+            textarea.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = Math.min(this.scrollHeight, 400) + 'px';
+            });
+        });
+    </script>
+</body>
+</html>
