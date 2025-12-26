@@ -1,0 +1,88 @@
+{
+  "apps": [
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "url": "https://youtube.com",
+      "icon": "📺",
+      "category": "Video"
+    },
+    {
+      "id": "discord",
+      "name": "Discord",
+      "url": "https://discord.com/app",
+      "icon": "💬",
+      "category": "Social"
+    },
+    {
+      "id": "spotify",
+      "name": "Spotify",
+      "url": "https://open.spotify.com",
+      "icon": "🎵",
+      "category": "Music"
+    },
+    {
+      "id": "netflix",
+      "name": "Netflix",
+      "url": "https://netflix.com",
+      "icon": "🎬",
+      "category": "Video"
+    },
+    {
+      "id": "tiktok",
+      "name": "TikTok",
+      "url": "https://tiktok.com",
+      "icon": "🎭",
+      "category": "Social"
+    },
+    {
+      "id": "reddit",
+      "name": "Reddit",
+      "url": "https://reddit.com",
+      "icon": "👽",
+      "category": "Social"
+    },
+    {
+      "id": "twitch",
+      "name": "Twitch",
+      "url": "https://twitch.tv",
+      "icon": "🟣",
+      "category": "Streaming"
+    },
+    {
+      "id": "geforce",
+      "name": "GeForce NOW",
+      "url": "https://play.geforcenow.com",
+      "icon": "🎮",
+      "category": "Gaming"
+    },
+    {
+      "id": "nowgg",
+      "name": "Now.gg",
+      "url": "https://now.gg",
+      "icon": "☁️",
+      "category": "Gaming"
+    },
+    {
+      "id": "instagram",
+      "name": "Instagram",
+      "url": "https://instagram.com",
+      "icon": "📸",
+      "category": "Social"
+    },
+    {
+      "id": "twitter",
+      "name": "Twitter/X",
+      "url": "https://twitter.com",
+      "icon": "🐦",
+      "category": "Social"
+    },
+    {
+      "id": "gmail",
+      "name": "Gmail",
+      "url": "https://mail.google.com",
+      "icon": "📧",
+      "category": "Productivity"
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <h1>REDIO</h1>
+      </div>
+      <nav class="nav">
+        <button class="nav-btn" data-tab="home">🏠 Home</button>
+        <button class="nav-btn" data-tab="games">🎮 Games</button>
+        <button class="nav-btn" data-tab="apps">📱 Apps</button>
+        <button class="nav-btn" data-tab="tabs">📑 Tabs</button>
+        <button class="nav-btn" id="settings-btn">⚙️ Settings</button>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Home Tab -->
+      <div id="home-tab" class="tab-content active">
+        <div class="hero">
+          <h1 class="hero-title">REDIO</h1>
+          <p class="hero-subtitle">Fast, secure proxy browsing</p>
+          <form class="search-form" id="search-form">
+            <input 
+              type="text" 
+              id="search-input" 
+              placeholder="Search or enter a URL" 
+              class="search-input"
+            >
+            <button type="submit" class="search-btn">Go</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Games Tab -->
+      <div id="games-tab" class="tab-content">
+        <h2 class="section-title">Games</h2>
+        <div class="grid" id="games-grid"></div>
+      </div>
+
+      <!-- Apps Tab -->
+      <div id="apps-tab" class="tab-content">
+        <h2 class="section-title">Apps</h2>
+        <div class="grid" id="apps-grid"></div>
+      </div>
+
+      <!-- Tabs Management -->
+      <div id="tabs-tab" class="tab-content">
+        <h2 class="section-title">Open Tabs</h2>
+        <div id="tabs-list" class="tabs-list"></div>
+      </div>
+
+      <!-- Proxy View -->
+      <div id="proxy-view" class="proxy-view hidden">
+        <div class="proxy-controls">
+          <button id="back-btn" class="control-btn">← Back</button>
+          <input type="text" id="url-bar" class="url-bar" placeholder="Enter URL">
+          <button id="go-btn" class="control-btn">Go</button>
+          <button id="close-proxy-btn" class="control-btn close-btn">✕</button>
+        </div>
+        <iframe id="proxy-frame" class="proxy-frame"></iframe>
+      </div>
+    </main>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Settings</h2>
+          <button id="close-settings" class="close-modal">✕</button>
+        </div>
+        <div class="modal-body">
+          <!-- About:Blank -->
+          <div class="setting-card">
+            <h3>About:Blank Cloak</h3>
+            <p>Open site in about:blank page</p>
+            <label class="toggle">
+              <input type="checkbox" id="about-blank-toggle">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <!-- Tab Cloak -->
+          <div class="setting-card">
+            <h3>Tab Cloaking</h3>
+            <p>Change title and icon</p>
+            <label class="toggle">
+              <input type="checkbox" id="tab-cloak-toggle">
+              <span class="slider"></span>
+            </label>
+            <div id="tab-cloak-options" class="hidden">
+              <input type="text" id="cloak-title" placeholder="Tab Title" class="input-field">
+              <input type="text" id="cloak-favicon" placeholder="Favicon URL" class="input-field">
+              <button id="save-cloak" class="btn">Save</button>
+            </div>
+          </div>
+
+          <!-- Search Engine -->
+          <div class="setting-card">
+            <h3>Search Engine</h3>
+            <select id="search-engine" class="select-field">
+              <option value="Google">Google</option>
+              <option value="DuckDuckGo">DuckDuckGo</option>
+              <option value="Bing">Bing</option>
+            </select>
+          </div>
+
+          <!-- Proxy Type -->
+          <div class="setting-card">
+            <h3>Proxy</h3>
+            <select id="proxy-type" class="select-field">
+              <option value="Ultraviolet">Ultraviolet</option>
+              <option value="Dynamic">Dynamic</option>
+            </select>
+          </div>
+
+          <!-- Theme -->
+          <div class="setting-card">
+            <h3>Theme</h3>
+            <select id="theme-select" class="select-field">
+              <option value="dark">Dark</option>
+              <option value="light">Light</option>
+              <option value="amoled">AMOLED</option>
+              <option value="purple">Purple</option>
+            </select>
+          </div>
+
+          <!-- Password Protection -->
+          <div class="setting-card">
+            <h3>Password Protection</h3>
+            <p>Protect your site with a password</p>
+            <input type="password" id="password-input" placeholder="Set Password" class="input-field">
+            <button id="save-password" class="btn">Save Password</button>
+          </div>
+
+          <!-- Data Management -->
+          <div class="setting-card">
+            <h3>Data Management</h3>
+            <button id="export-data" class="btn">Export Data</button>
+            <button id="import-data" class="btn">Import Data</button>
+            <button id="clear-data" class="btn danger">Clear All Data</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
