@@ -1,0 +1,120 @@
+{
+    "site": {
+        "name": "Redio",
+        "version": "4.0.3",
+        "description": "Advanced Web Proxy & Entertainment Platform",
+        "author": "Redio Team",
+        "repository": "https://github.com/redio-site/redio",
+        "license": "MIT",
+        "keywords": ["proxy", "games", "web", "cloak", "unblocker"],
+        "supportEmail": "support@redio.site",
+        "discord": "https://discord.gg/redio",
+        "documentation": "https://docs.redio.site"
+    },
+    "features": {
+        "proxy": true,
+        "games": true,
+        "apps": true,
+        "tabs": true,
+        "cloaking": true,
+        "themes": true,
+        "offline": true,
+        "pwa": true,
+        "search": true,
+        "bookmarks": true,
+        "history": true,
+        "passwordProtection": false,
+        "analytics": false,
+        "adBlock": true
+    },
+    "ui": {
+        "defaultTheme": "dark",
+        "animations": true,
+        "sidebar": true,
+        "compactMode": false,
+        "fontSize": "medium",
+        "fontFamily": "Segoe UI, system-ui, sans-serif",
+        "roundedCorners": true,
+        "shadows": true,
+        "gradients": true,
+        "transparency": true
+    },
+    "search": {
+        "defaultEngine": "google",
+        "engines": ["google", "duckduckgo", "bing", "youtube", "custom"],
+        "suggestions": true,
+        "instantResults": true,
+        "searchHistory": true,
+        "searchShortcuts": true
+    },
+    "games": {
+        "defaultView": "grid",
+        "sortBy": "name",
+        "itemsPerPage": 12,
+        "showRatings": true,
+        "showCategories": true,
+        "featuredCount": 4,
+        "recentCount": 5,
+        "popularCount": 5
+    },
+    "apps": {
+        "defaultView": "grid",
+        "categories": ["Tools", "Productivity", "Creativity", "Information", "Utilities"],
+        "preinstalled": ["calculator", "notes", "clock", "calendar", "draw", "texteditor", "weather", "currency"]
+    },
+    "tabs": {
+        "maxTabs": 20,
+        "sessionRestore": true,
+        "autoSave": true,
+        "saveInterval": 30000,
+        "pinTabs": true,
+        "tabGroups": true,
+        "duplicateDetection": true
+    },
+    "cloaking": {
+        "enabled": true,
+        "autoApply": true,
+        "defaultTitle": "Google",
+        "defaultIcon": "https://www.google.com/favicon.ico",
+        "defaultUrl": "https://www.google.com",
+        "presets": ["google", "youtube", "github", "docs", "classroom", "custom"],
+        "hideNotice": false,
+        "historyCloaking": true
+    },
+    "privacy": {
+        "saveHistory": true,
+        "saveBookmarks": true,
+        "saveSettings": true,
+        "clearOnExit": false,
+        "doNotTrack": true,
+        "blockTrackers": true,
+        "blockAds": true,
+        "encryptStorage": false,
+        "incognitoMode": false
+    },
+    "performance": {
+        "cacheEnabled": true,
+        "cacheDuration": 86400000,
+        "lazyLoading": true,
+        "prefetch": true,
+        "compression": true,
+        "minify": true,
+        "serviceWorker": true,
+        "offlineSupport": true
+    },
+    "updates": {
+        "checkForUpdates": true,
+        "autoUpdate": false,
+        "notify": true,
+        "backupBeforeUpdate": true,
+        "updateChannel": "stable"
+    },
+    "backup": {
+        "autoBackup": true,
+        "backupInterval": 604800000,
+        "backupLocation": "local",
+        "cloudBackup": false,
+        "encryptBackups": false,
+        "maxBackups": 5
+    }
+}

@@ -1,0 +1,139 @@
+/* Light Theme */
+[data-theme="light"] {
+    --primary-color: #3b82f6;
+    --secondary-color: #8b5cf6;
+    --background-color: #f8fafc;
+    --surface-color: #ffffff;
+    --text-color: #1e293b;
+    --text-secondary: #64748b;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+}
+
+    [data-theme="light"] .header,
+    [data-theme="light"] .footer,
+    [data-theme="light"] .settings-card,
+    [data-theme="light"] .game-card,
+    [data-theme="light"] .app-card {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e2e8f0;
+    }
+
+    [data-theme="light"] .nav-btn {
+        border-color: #e2e8f0;
+    }
+
+        [data-theme="light"] .nav-btn:hover {
+            background-color: #f1f5f9;
+        }
+
+    [data-theme="light"] .search-container,
+    [data-theme="light"] .browser-container {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+/* Blue Theme */
+[data-theme="blue"] {
+    --primary-color: #2563eb;
+    --secondary-color: #1d4ed8;
+    --background-color: #0f172a;
+    --surface-color: #1e293b;
+    --text-color: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+}
+
+    [data-theme="blue"] .hero {
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(29, 78, 216, 0.2));
+    }
+
+    [data-theme="blue"] .nav-btn.active,
+    [data-theme="blue"] .search-btn,
+    [data-theme="blue"] .go-btn {
+        background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    }
+
+/* Purple Theme */
+[data-theme="purple"] {
+    --primary-color: #8b5cf6;
+    --secondary-color: #7c3aed;
+    --background-color: #1e1b4b;
+    --surface-color: #312e81;
+    --text-color: #f5f3ff;
+    --text-secondary: #c4b5fd;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+}
+
+    [data-theme="purple"] .hero {
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(124, 58, 237, 0.2));
+    }
+
+    [data-theme="purple"] .nav-btn.active,
+    [data-theme="purple"] .search-btn,
+    [data-theme="purple"] .go-btn {
+        background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    }
+
+    [data-theme="purple"] .logo h1 {
+        background: linear-gradient(135deg, #c4b5fd, #a78bfa);
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+
+/* Additional Theme Classes */
+.theme-glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.theme-glass-dark {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animation for theme switching */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Custom scrollbar for different themes */
+[data-theme="dark"] ::-webkit-scrollbar {
+    width: 10px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 5px;
+}
+
+    [data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+        background: #64748b;
+    }
+
+[data-theme="light"] ::-webkit-scrollbar {
+    width: 10px;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 5px;
+}
+
+    [data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+    }

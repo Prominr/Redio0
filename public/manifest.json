@@ -1,0 +1,78 @@
+{
+    "name": "Redio",
+    "short_name": "Redio",
+    "description": "Advanced Web Proxy & Games Platform",
+    "version": "4.0.3",
+    "version_name": "4.0.3",
+    "manifest_version": 3,
+    "author": "Redio Team",
+    
+    "icons": {
+        "16": "/assets/icons/icon-16.png",
+        "32": "/assets/icons/icon-32.png",
+        "48": "/assets/icons/icon-48.png",
+        "64": "/assets/icons/icon-64.png",
+        "128": "/assets/icons/icon-128.png",
+        "256": "/assets/icons/icon-256.png",
+        "512": "/assets/icons/icon-512.png"
+    },
+    
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "any",
+    "theme_color": "#6366f1",
+    "background_color": "#0f172a",
+    
+    "permissions": [],
+    
+    "shortcuts": [
+        {
+            "name": "Browse",
+            "short_name": "Browse",
+            "description": "Open browser",
+            "url": "/#browse"
+        },
+        {
+            "name": "Games",
+            "short_name": "Games",
+            "description": "Open games library",
+            "url": "/#games"
+        },
+        {
+            "name": "Apps",
+            "short_name": "Apps",
+            "description": "Open apps collection",
+            "url": "/#apps"
+        }
+    ],
+    
+    "related_applications": [],
+    "prefer_related_applications": false,
+    
+    "screenshots": [
+        {
+            "src": "/assets/screenshots/home.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "label": "Redio Home Page"
+        },
+        {
+            "src": "/assets/screenshots/games.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "label": "Games Library"
+        },
+        {
+            "src": "/assets/screenshots/settings.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "label": "Settings Panel"
+        }
+    ],
+    
+    "categories": ["entertainment", "games", "productivity", "utilities"],
+    
+    "launch_handler": {
+        "client_mode": ["auto"]
+    }
+}

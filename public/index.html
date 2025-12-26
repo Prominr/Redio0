@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redio - Web Proxy & Games</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/themes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <h1><i class="fas fa-satellite"></i> REDIO</h1>
+                <span class="version">v4.0.3</span>
+            </div>
+            <nav class="nav">
+                <button class="nav-btn active" data-page="home">
+                    <i class="fas fa-home"></i> Home
+                </button>
+                <button class="nav-btn" data-page="browse">
+                    <i class="fas fa-globe"></i> Browse
+                </button>
+                <button class="nav-btn" data-page="games">
+                    <i class="fas fa-gamepad"></i> Games
+                </button>
+                <button class="nav-btn" data-page="apps">
+                    <i class="fas fa-th"></i> Apps
+                </button>
+                <button class="nav-btn" data-page="tabs">
+                    <i class="fas fa-folder"></i> Tabs <span class="tab-count">0</span>
+                </button>
+                <button class="nav-btn" data-page="settings">
+                    <i class="fas fa-cog"></i> Settings
+                </button>
+            </nav>
+            <div class="header-actions">
+                <button id="themeToggle" class="icon-btn">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="fullscreenBtn" class="icon-btn">
+                    <i class="fas fa-expand"></i>
+                </button>
+                <button id="cloakBtn" class="cloak-btn">
+                    <i class="fas fa-mask"></i> Cloak
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home Page -->
+            <div id="homePage" class="page active">
+                <div class="hero">
+                    <div class="hero-content">
+                        <h2><i class="fas fa-rocket"></i> Welcome to Redio</h2>
+                        <p>Advanced web proxy with games, apps, and cloaking</p>
+                        
+                        <!-- Search Box -->
+                        <div class="search-container">
+                            <div class="search-header">
+                                <select id="searchEngine" class="engine-select">
+                                    <option value="google">Google</option>
+                                    <option value="duckduckgo">DuckDuckGo</option>
+                                    <option value="bing">Bing</option>
+                                    <option value="youtube">YouTube</option>
+                                    <option value="custom">Custom</option>
+                                </select>
+                                <button id="searchSettings" class="icon-btn small">
+                                    <i class="fas fa-sliders-h"></i>
+                                </button>
+                            </div>
+                            <div class="search-box">
+                                <input type="text" id="searchInput" placeholder="Search or enter URL...">
+                                <button id="searchBtn" class="search-btn">
+                                    <i class="fas fa-search"></i> Go
+                                </button>
+                                <button id="proxyBtn" class="proxy-btn">
+                                    <i class="fas fa-shield-alt"></i> Proxy
+                                </button>
+                            </div>
+                            <div class="quick-links">
+                                <button class="quick-link" data-url="https://www.youtube.com">
+                                    <i class="fab fa-youtube"></i> YouTube
+                                </button>
+                                <button class="quick-link" data-url="https://www.google.com">
+                                    <i class="fab fa-google"></i> Google
+                                </button>
+                                <button class="quick-link" data-url="https://github.com">
+                                    <i class="fab fa-github"></i> GitHub
+                                </button>
+                                <button class="quick-link" data-url="https://www.wikipedia.org">
+                                    <i class="fab fa-wikipedia-w"></i> Wikipedia
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Games & Apps -->
+                <div class="featured-section">
+                    <h3><i class="fas fa-fire"></i> Featured Games</h3>
+                    <div class="featured-grid" id="featuredGames">
+                        <!-- Games loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Browse Page -->
+            <div id="browsePage" class="page">
+                <div class="browse-header">
+                    <div class="url-bar">
+                        <button class="nav-control" id="goBack">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                        <button class="nav-control" id="goForward">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button class="nav-control" id="refreshPage">
+                            <i class="fas fa-redo"></i>
+                        </button>
+                        <input type="text" id="urlInput" placeholder="Enter URL to browse...">
+                        <button id="goUrl" class="go-btn">
+                            <i class="fas fa-external-link-alt"></i> Go
+                        </button>
+                    </div>
+                </div>
+                <div class="browser-container">
+                    <iframe id="browserFrame" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                    </iframe>
+                    <div class="browser-overlay" id="browserOverlay">
+                        <div class="overlay-content">
+                            <i class="fas fa-compass fa-3x"></i>
+                            <h3>Ready to Browse</h3>
+                            <p>Enter a URL above to start browsing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Games Page -->
+            <div id="gamesPage" class="page">
+                <div class="page-header">
+                    <h2><i class="fas fa-gamepad"></i> Games Library</h2>
+                    <div class="search-games">
+                        <input type="text" id="gameSearch" placeholder="Search games...">
+                    </div>
+                </div>
+                <div class="games-grid" id="gamesGrid">
+                    <!-- Games loaded dynamically -->
+                </div>
+            </div>
+
+            <!-- Apps Page -->
+            <div id="appsPage" class="page">
+                <div class="page-header">
+                    <h2><i class="fas fa-th"></i> Applications</h2>
+                </div>
+                <div class="apps-grid" id="appsGrid">
+                    <!-- Apps loaded dynamically -->
+                </div>
+            </div>
+
+            <!-- Tabs Page -->
+            <div id="tabsPage" class="page">
+                <div class="page-header">
+                    <h2><i class="fas fa-folder"></i> Tab Management</h2>
+                    <button id="newTabBtn" class="btn primary">
+                        <i class="fas fa-plus"></i> New Tab
+                    </button>
+                </div>
+                <div class="tabs-container">
+                    <div class="tabs-list" id="tabsList">
+                        <!-- Tabs will be added here -->
+                    </div>
+                    <div class="tab-content" id="tabContent">
+                        <div class="empty-tabs">
+                            <i class="fas fa-folder-open fa-3x"></i>
+                            <h3>No tabs open</h3>
+                            <p>Create a new tab to get started</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Page -->
+            <div id="settingsPage" class="page">
+                <div class="settings-container">
+                    <!-- Settings content matches your screenshot design -->
+                    <!-- This will be loaded from settings.html -->
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="status">
+                    <span class="status-indicator active"></span>
+                    <span>Proxy: Active</span>
+                </div>
+                <div class="footer-links">
+                    <a href="/about.html">About</a>
+                    <a href="#" id="exportBtn">Export Data</a>
+                    <a href="#" id="importBtn">Import Data</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2024 Redio • v4.0.3 • Last updated: October 2024
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modals -->
+    <div id="cloakModal" class="modal">
+        <div class="modal-content">
+            <h3><i class="fas fa-mask"></i> About:Blank Cloak</h3>
+            <p>This will open a new tab with about:blank cloaking</p>
+            <div class="modal-actions">
+                <button id="cloakOpen" class="btn primary">Open Cloaked Tab</button>
+                <button id="cloakCancel" class="btn secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/proxy.js"></script>
+    <script src="/js/tabs.js"></script>
+    <script src="/js/cloak.js"></script>
+</body>
+</html>

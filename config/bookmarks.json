@@ -1,0 +1,207 @@
+{
+    "categories": [
+        {
+            "id": "social",
+            "name": "Social Media",
+            "icon": "fas fa-share-alt",
+            "bookmarks": [
+                {
+                    "id": "youtube",
+                    "name": "YouTube",
+                    "url": "https://www.youtube.com",
+                    "icon": "fab fa-youtube",
+                    "description": "Watch videos"
+                },
+                {
+                    "id": "twitter",
+                    "name": "Twitter",
+                    "url": "https://twitter.com",
+                    "icon": "fab fa-twitter",
+                    "description": "Social networking"
+                },
+                {
+                    "id": "reddit",
+                    "name": "Reddit",
+                    "url": "https://www.reddit.com",
+                    "icon": "fab fa-reddit",
+                    "description": "Online community"
+                },
+                {
+                    "id": "discord",
+                    "name": "Discord",
+                    "url": "https://discord.com",
+                    "icon": "fab fa-discord",
+                    "description": "Voice and text chat"
+                }
+            ]
+        },
+        {
+            "id": "education",
+            "name": "Education",
+            "icon": "fas fa-graduation-cap",
+            "bookmarks": [
+                {
+                    "id": "wikipedia",
+                    "name": "Wikipedia",
+                    "url": "https://www.wikipedia.org",
+                    "icon": "fab fa-wikipedia-w",
+                    "description": "Free encyclopedia"
+                },
+                {
+                    "id": "khanacademy",
+                    "name": "Khan Academy",
+                    "url": "https://www.khanacademy.org",
+                    "icon": "fas fa-chalkboard-teacher",
+                    "description": "Free online courses"
+                },
+                {
+                    "id": "coursera",
+                    "name": "Coursera",
+                    "url": "https://www.coursera.org",
+                    "icon": "fas fa-university",
+                    "description": "Online learning"
+                },
+                {
+                    "id": "duolingo",
+                    "name": "Duolingo",
+                    "url": "https://www.duolingo.com",
+                    "icon": "fas fa-language",
+                    "description": "Language learning"
+                }
+            ]
+        },
+        {
+            "id": "entertainment",
+            "name": "Entertainment",
+            "icon": "fas fa-film",
+            "bookmarks": [
+                {
+                    "id": "netflix",
+                    "name": "Netflix",
+                    "url": "https://www.netflix.com",
+                    "icon": "fas fa-film",
+                    "description": "Streaming service"
+                },
+                {
+                    "id": "spotify",
+                    "name": "Spotify",
+                    "url": "https://open.spotify.com",
+                    "icon": "fab fa-spotify",
+                    "description": "Music streaming"
+                },
+                {
+                    "id": "twitch",
+                    "name": "Twitch",
+                    "url": "https://www.twitch.tv",
+                    "icon": "fab fa-twitch",
+                    "description": "Live streaming"
+                },
+                {
+                    "id": "crunchyroll",
+                    "name": "Crunchyroll",
+                    "url": "https://www.crunchyroll.com",
+                    "icon": "fas fa-tv",
+                    "description": "Anime streaming"
+                }
+            ]
+        },
+        {
+            "id": "tools",
+            "name": "Tools & Utilities",
+            "icon": "fas fa-tools",
+            "bookmarks": [
+                {
+                    "id": "google_drive",
+                    "name": "Google Drive",
+                    "url": "https://drive.google.com",
+                    "icon": "fab fa-google-drive",
+                    "description": "Cloud storage"
+                },
+                {
+                    "id": "github",
+                    "name": "GitHub",
+                    "url": "https://github.com",
+                    "icon": "fab fa-github",
+                    "description": "Code hosting"
+                },
+                {
+                    "id": "stackoverflow",
+                    "name": "Stack Overflow",
+                    "url": "https://stackoverflow.com",
+                    "icon": "fab fa-stack-overflow",
+                    "description": "Programming Q&A"
+                },
+                {
+                    "id": "canva",
+                    "name": "Canva",
+                    "url": "https://www.canva.com",
+                    "icon": "fas fa-palette",
+                    "description": "Graphic design"
+                }
+            ]
+        },
+        {
+            "id": "news",
+            "name": "News",
+            "icon": "fas fa-newspaper",
+            "bookmarks": [
+                {
+                    "id": "bbc",
+                    "name": "BBC News",
+                    "url": "https://www.bbc.com/news",
+                    "icon": "fas fa-globe-europe",
+                    "description": "World news"
+                },
+                {
+                    "id": "cnn",
+                    "name": "CNN",
+                    "url": "https://www.cnn.com",
+                    "icon": "fas fa-tv",
+                    "description": "News network"
+                },
+                {
+                    "id": "reuters",
+                    "name": "Reuters",
+                    "url": "https://www.reuters.com",
+                    "icon": "fas fa-newspaper",
+                    "description": "International news"
+                },
+                {
+                    "id": "ap",
+                    "name": "Associated Press",
+                    "url": "https://apnews.com",
+                    "icon": "fas fa-newspaper",
+                    "description": "News agency"
+                }
+            ]
+        }
+    ],
+    "quickAccess": [
+        {
+            "id": "google",
+            "name": "Google",
+            "url": "https://www.google.com",
+            "icon": "fab fa-google"
+        },
+        {
+            "id": "gmail",
+            "name": "Gmail",
+            "url": "https://mail.google.com",
+            "icon": "fas fa-envelope"
+        },
+        {
+            "id": "calendar",
+            "name": "Google Calendar",
+            "url": "https://calendar.google.com",
+            "icon": "fas fa-calendar"
+        },
+        {
+            "id": "docs",
+            "name": "Google Docs",
+            "url": "https://docs.google.com",
+            "icon": "fas fa-file-word"
+        }
+    ],
+    "recentlyVisited": [],
+    "mostVisited": []
+}

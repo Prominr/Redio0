@@ -1,0 +1,28 @@
+{
+  "name": "redio-site",
+  "version": "4.0.3",
+  "description": "Redio - Web Proxy with Games, Apps, and Cloaking",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
+    "build": "echo 'No build step required'"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "node-fetch": "^2.6.9",
+    "express-rate-limit": "^6.10.0",
+    "helmet": "^7.0.0",
+    "compression": "^1.7.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "keywords": ["proxy", "games", "web", "cloak", "unblocker"],
+  "author": "Redio Team",
+  "license": "MIT"
+}

@@ -1,0 +1,66 @@
+[
+    {
+        "id": "calculator",
+        "name": "Calculator",
+        "description": "Scientific calculator",
+        "url": "/apps/calculator.html",
+        "icon": "fas fa-calculator",
+        "category": "Tools"
+    },
+    {
+        "id": "notes",
+        "name": "Notes",
+        "description": "Take notes and save them",
+        "url": "/apps/notes.html",
+        "icon": "fas fa-sticky-note",
+        "category": "Productivity"
+    },
+    {
+        "id": "clock",
+        "name": "Clock",
+        "description": "World clock and timer",
+        "url": "/apps/clock.html",
+        "icon": "fas fa-clock",
+        "category": "Tools"
+    },
+    {
+        "id": "calendar",
+        "name": "Calendar",
+        "description": "Interactive calendar",
+        "url": "/apps/calendar.html",
+        "icon": "fas fa-calendar",
+        "category": "Productivity"
+    },
+    {
+        "id": "draw",
+        "name": "Drawing Board",
+        "description": "Online drawing tool",
+        "url": "/apps/draw.html",
+        "icon": "fas fa-paint-brush",
+        "category": "Creativity"
+    },
+    {
+        "id": "texteditor",
+        "name": "Text Editor",
+        "description": "Simple text editor",
+        "url": "/apps/texteditor.html",
+        "icon": "fas fa-file-alt",
+        "category": "Productivity"
+    },
+    {
+        "id": "weather",
+        "name": "Weather",
+        "description": "Weather forecast",
+        "url": "/apps/weather.html",
+        "icon": "fas fa-cloud-sun",
+        "category": "Information"
+    },
+    {
+        "id": "currency",
+        "name": "Currency Converter",
+        "description": "Convert currencies",
+        "url": "/apps/currency.html",
+        "icon": "fas fa-money-bill-wave",
+        "category": "Tools"
+    }
+]

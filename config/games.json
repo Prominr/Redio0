@@ -1,0 +1,66 @@
+[
+    {
+        "id": "slope",
+        "name": "Slope",
+        "description": "3D running game with challenging obstacles",
+        "url": "https://slope-game.github.io",
+        "icon": "fas fa-running",
+        "category": "Racing"
+    },
+    {
+        "id": "minecraft",
+        "name": "Minecraft",
+        "description": "Browser version of Minecraft",
+        "url": "https://classic.minecraft.net",
+        "icon": "fas fa-cube",
+        "category": "Adventure"
+    },
+    {
+        "id": "retrobowl",
+        "name": "Retro Bowl",
+        "description": "American football management game",
+        "url": "https://www.retrobowl.app",
+        "icon": "fas fa-football-ball",
+        "category": "Sports"
+    },
+    {
+        "id": "tetris",
+        "name": "Tetris",
+        "description": "Classic block stacking game",
+        "url": "https://tetris.com/play-tetris",
+        "icon": "fas fa-th",
+        "category": "Puzzle"
+    },
+    {
+        "id": "snake",
+        "name": "Snake",
+        "description": "Classic snake game",
+        "url": "https://playsnake.org",
+        "icon": "fas fa-snake",
+        "category": "Arcade"
+    },
+    {
+        "id": "pacman",
+        "name": "Pac-Man",
+        "description": "Classic arcade game",
+        "url": "https://www.pacman.com",
+        "icon": "fas fa-ghost",
+        "category": "Arcade"
+    },
+    {
+        "id": "geometrydash",
+        "name": "Geometry Dash",
+        "description": "Rhythm-based platformer",
+        "url": "https://geometrydash.io",
+        "icon": "fas fa-bolt",
+        "category": "Platformer"
+    },
+    {
+        "id": "subwaysurfers",
+        "name": "Subway Surfers",
+        "description": "Endless running game",
+        "url": "https://subway-surfers.com",
+        "icon": "fas fa-train",
+        "category": "Arcade"
+    }
+]

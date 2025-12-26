@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - Redio</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/themes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        
+        .error-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+        
+        .error-message {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .error-search {
+            max-width: 500px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        
+        .search-box {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 15px;
+            background: var(--surface-color);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+        
+        .search-box button {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .error-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        
+        .link-card {
+            background: var(--surface-color);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .link-card i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .link-card h3 {
+            margin-bottom: 10px;
+        }
+        
+        .link-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .astronaut {
+            font-size: 5rem;
+            margin-bottom: 30px;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 6rem;
+            }
+            
+            .error-title {
+                font-size: 2rem;
+            }
+            
+            .error-links {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-box {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="astronaut">
+            <i class="fas fa-user-astronaut"></i>
+        </div>
+        
+        <div class="error-code">404</div>
+        
+        <h1 class="error-title">Page Lost in Space</h1>
+        
+        <p class="error-message">
+            The page you're looking for seems to have drifted off into the cosmos. 
+            Don't worry, we've got plenty of other amazing things to explore right here!
+        </p>
+        
+        <div class="error-search">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search Redio...">
+                <button onclick="performSearch()">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+        </div>
+        
+        <div class="error-links">
+            <a href="/" class="link-card">
+                <i class="fas fa-home"></i>
+                <h3>Home Page</h3>
+                <p>Return to the main Redio dashboard</p>
+            </a>
+            
+            <a href="/games.html" class="link-card">
+                <i class="fas fa-gamepad"></i>
+                <h3>Games Library</h3>
+                <p>Explore our collection of games</p>
+            </a>
+            
+            <a href="/apps.html" class="link-card">
+                <i class="fas fa-th"></i>
+                <h3>Applications</h3>
+                <p>Use our built-in apps and tools</p>
+            </a>
+            
+            <a href="/settings.html" class="link-card">
+                <i class="fas fa-cog"></i>
+                <h3>Settings</h3>
+                <p>Configure your Redio experience</p>
+            </a>
+        </div>
+        
+        <div class="error-actions">
+            <button class="btn primary" onclick="window.history.back()">
+                <i class="fas fa-arrow-left"></i> Go Back
+            </button>
+            
+            <button class="btn secondary" onclick="location.reload()">
+                <i class="fas fa-redo"></i> Refresh Page
+            </button>
+            
+            <button class="btn" onclick="window.location.href = '/about.html'" 
+                    style="background: var(--warning-color); color: white;">
+                <i class="fas fa-question-circle"></i> Help & Support
+            </button>
+        </div>
+        
+        <p style="margin-top: 30px; color: var(--text-secondary); font-size: 0.9rem;">
+            <i class="fas fa-rocket"></i> 
+            If you believe this page should exist, please contact support.
+        </p>
+    </div>
+    
+    <script>
+        function performSearch() {
+            const query = document.getElementById('searchInput').value.trim();
+            if (query) {
+                // Redirect to home page with search parameter
+                window.location.href = `/?search=${encodeURIComponent(query)}`;
+            }
+        }
+        
+        // Allow pressing Enter to search
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+        
+        // Focus search input on load
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('searchInput').focus();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,545 @@
+/* Responsive Design for Redio */
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+        margin: 0 auto;
+    }
+
+    .games-grid,
+    .apps-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Large devices (desktops, 992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    .games-grid,
+    .apps-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .nav-btn span {
+        display: none;
+    }
+
+    .nav-btn i {
+        margin-right: 0;
+    }
+}
+
+/* Medium devices (tablets, 768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .container {
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .games-grid,
+    .apps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    #searchInput,
+    #urlInput {
+        width: 100%;
+    }
+
+    .tabs-container {
+        grid-template-columns: 1fr;
+    }
+
+    .settings-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Small devices (landscape phones, 576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    .container {
+        max-width: 540px;
+        margin: 0 auto;
+    }
+
+    .games-grid,
+    .apps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .header {
+        padding: 10px;
+    }
+
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+
+    .nav-btn {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    .hero {
+        padding: 20px;
+    }
+
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .search-container {
+        padding: 15px;
+    }
+
+    .featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .browser-container {
+        height: 60vh;
+    }
+
+    .settings-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575px) {
+    .container {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .games-grid,
+    .apps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        flex-direction: column;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .logo {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .nav-btn {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+        .nav-btn span {
+            display: none;
+        }
+
+    .header-actions {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .hero {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .hero-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .search-container {
+        padding: 15px;
+    }
+
+    .search-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .engine-select {
+        width: 100%;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    #searchInput,
+    #urlInput {
+        width: 100%;
+    }
+
+    .search-btn,
+    .proxy-btn,
+    .go-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .quick-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .featured-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .featured-section h3 {
+        font-size: 1.3rem;
+    }
+
+    .browser-container {
+        height: 50vh;
+    }
+
+    .url-bar {
+        flex-wrap: wrap;
+    }
+
+    #urlInput {
+        order: 1;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .tabs-container {
+        grid-template-columns: 1fr;
+    }
+
+    .settings-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .settings-card {
+        padding: 15px;
+    }
+
+    .footer {
+        padding: 15px 10px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Modal responsiveness */
+    .modal-content {
+        width: 95%;
+        margin: 10px;
+        padding: 20px;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    /* Toast notifications */
+    .toast {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        width: auto;
+    }
+
+    /* Game/App cards */
+    .game-card,
+    .app-card {
+        margin-bottom: 15px;
+    }
+
+    /* Cloaking page */
+    .cloak-options {
+        grid-template-columns: 1fr;
+    }
+
+    .cloak-actions {
+        flex-direction: column;
+    }
+
+    /* Error pages */
+    .error-code {
+        font-size: 4rem;
+    }
+
+    .error-title {
+        font-size: 1.5rem;
+    }
+
+    .error-links {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Print styles */
+@media print {
+    .header,
+    .footer,
+    .nav,
+    .search-container,
+    .cloak-btn,
+    .theme-toggle,
+    .modal,
+    .toast {
+        display: none !important;
+    }
+
+    body {
+        background: white !important;
+        color: black !important;
+    }
+
+    .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .main-content {
+        padding: 0 !important;
+    }
+
+    .page {
+        display: block !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --text-color: #000000;
+        --text-secondary: #333333;
+        --background-color: #ffffff;
+        --surface-color: #f0f0f0;
+    }
+
+    .nav-btn.active {
+        border: 2px solid var(--primary-color);
+    }
+
+    .btn {
+        border: 1px solid currentColor;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Dark mode auto-detection */
+@media (prefers-color-scheme: dark) {
+    [data-theme="auto"] {
+        --primary-color: #6366f1;
+        --secondary-color: #8b5cf6;
+        --background-color: #0f172a;
+        --surface-color: #1e293b;
+        --text-color: #f1f5f9;
+        --text-secondary: #94a3b8;
+    }
+}
+
+/* Light mode auto-detection */
+@media (prefers-color-scheme: light) {
+    [data-theme="auto"] {
+        --primary-color: #3b82f6;
+        --secondary-color: #8b5cf6;
+        --background-color: #f8fafc;
+        --surface-color: #ffffff;
+        --text-color: #1e293b;
+        --text-secondary: #64748b;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .nav-btn,
+    .btn,
+    .game-card,
+    .app-card,
+    .tab-item {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 16px; /* Prevents iOS zoom on focus */
+    }
+
+    .search-btn,
+    .proxy-btn,
+    .go-btn {
+        padding: 15px;
+    }
+
+    /* Larger tap targets for mobile */
+    .icon-btn {
+        width: 44px;
+        height: 44px;
+    }
+
+    .nav-control {
+        width: 44px;
+        height: 44px;
+    }
+
+    /* Remove hover effects for touch */
+    .nav-btn:hover,
+    .btn:hover,
+    .game-card:hover,
+    .app-card:hover {
+        transform: none;
+    }
+}
+
+/* Foldable devices support */
+@media (spanning: single-fold-vertical) {
+    .container {
+        max-width: calc(100vw - env(fold-left) - env(fold-right));
+        margin-left: env(fold-left);
+        margin-right: env(fold-right);
+    }
+}
+
+/* Very large screens (4K and above) */
+@media (min-width: 2000px) {
+    .container {
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+
+    .games-grid,
+    .apps-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .hero-content h2 {
+        font-size: 3.5rem;
+    }
+
+    .search-container {
+        max-width: 1000px;
+    }
+
+    #searchInput,
+    #urlInput {
+        padding: 25px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Height-based media queries */
+@media (max-height: 600px) {
+    .hero {
+        padding: 15px;
+    }
+
+    .hero-content h2 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+
+    .search-container {
+        padding: 15px;
+    }
+
+    .browser-container {
+        height: 55vh;
+    }
+
+    .game-thumbnail,
+    .app-icon {
+        height: 120px;
+    }
+}
+
+/* Orientation-based media queries */
+@media (orientation: landscape) and (max-height: 500px) {
+    .header {
+        padding: 10px;
+    }
+
+    .nav-btn span {
+        display: none;
+    }
+
+    .hero {
+        display: none;
+    }
+
+    .browser-container {
+        height: 70vh;
+    }
+}
+
+/* Pixel density adjustments */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo h1 {
+        font-weight: 600;
+    }
+
+    .game-card,
+    .app-card {
+        border: 0.5px solid rgba(255, 255, 255, 0.1);
+    }
+}

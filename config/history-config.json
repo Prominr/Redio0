@@ -1,0 +1,55 @@
+{
+    "historySettings": {
+        "enabled": true,
+        "maxEntries": 1000,
+        "retentionDays": 90,
+        "privacyMode": false,
+        "autoClear": false,
+        "clearInterval": 604800000,
+        "excludeSites": [],
+        "groupByDomain": true,
+        "showTimestamps": true,
+        "searchable": true
+    },
+    "privacy": {
+        "doNotTrack": true,
+        "clearOnExit": false,
+        "encryptHistory": false,
+        "localOnly": true,
+        "noThirdParty": true
+    },
+    "display": {
+        "viewMode": "list",
+        "sortBy": "date",
+        "sortOrder": "desc",
+        "itemsPerPage": 50,
+        "showThumbnails": false,
+        "groupByDate": true,
+        "dateFormat": "relative",
+        "timeFormat": "12hour"
+    },
+    "export": {
+        "format": "json",
+        "includeTimestamps": true,
+        "includeVisitCount": true,
+        "compress": false,
+        "encrypt": false
+    },
+    "search": {
+        "indexTitles": true,
+        "indexUrls": true,
+        "indexContent": false,
+        "fuzzySearch": true,
+        "searchHistory": true,
+        "suggestions": true
+    },
+    "analytics": {
+        "trackVisits": true,
+        "trackDuration": true,
+        "trackReferrers": true,
+        "trackClicks": true,
+        "generateReports": false,
+        "weeklySummary": false,
+        "monthlyTrends": false
+    }
+}

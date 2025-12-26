@@ -1,0 +1,92 @@
+{
+    "proxySettings": {
+        "timeout": 30000,
+        "maxRedirects": 10,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "cacheEnabled": true,
+        "cacheDuration": 3600000,
+        "compression": true,
+        "blockedDomains": [
+            "localhost",
+            "127.0.0.1",
+            "192.168.*",
+            "10.*",
+            "172.16.*",
+            "*.local"
+        ],
+        "allowedProtocols": ["http:", "https:"],
+        "maxContentLength": 52428800,
+        "enableCaching": true,
+        "enableLogging": true,
+        "logLevel": "error"
+    },
+    "proxyEndpoints": {
+        "domestic": {
+            "name": "Domestic Proxy",
+            "description": "Fast local proxy server",
+            "endpoint": "/proxy/fetch",
+            "type": "local",
+            "priority": 1
+        },
+        "dynamic": {
+            "name": "Dynamic Proxy",
+            "description": "Dynamic routing proxy with load balancing",
+            "endpoint": "/proxy/dynamic",
+            "type": "local",
+            "priority": 2
+        },
+        "ultraviolet": {
+            "name": "Ultraviolet",
+            "description": "Advanced web proxy based on Ultraviolet",
+            "endpoint": "https://uv.example.com/service/",
+            "type": "external",
+            "priority": 3
+        },
+        "rammerhead": {
+            "name": "Rammerhead",
+            "description": "Session-based proxy with browser emulation",
+            "endpoint": "https://rh.example.com/browse?",
+            "type": "external",
+            "priority": 4
+        },
+        "corrosion": {
+            "name": "Corrosion",
+            "description": "Lightweight proxy with WebSocket support",
+            "endpoint": "https://cr.example.com/",
+            "type": "external",
+            "priority": 5
+        }
+    },
+    "security": {
+        "rateLimit": {
+            "windowMs": 900000,
+            "maxRequests": 100,
+            "message": "Too many requests from this IP"
+        },
+        "headers": {
+            "xFrameOptions": "DENY",
+            "xContentTypeOptions": "nosniff",
+            "xXSSProtection": "1; mode=block",
+            "referrerPolicy": "no-referrer",
+            "contentSecurityPolicy": "default-src 'self'"
+        },
+        "cors": {
+            "origin": "*",
+            "methods": ["GET", "POST"],
+            "credentials": false
+        }
+    },
+    "performance": {
+        "cacheControl": "public, max-age=3600",
+        "compressionLevel": 6,
+        "enableGzip": true,
+        "enableBrotli": true,
+        "chunkedEncoding": true
+    },
+    "monitoring": {
+        "enableMetrics": true,
+        "logErrors": true,
+        "alertThreshold": 100,
+        "uptimeCheck": true
+    }
+}

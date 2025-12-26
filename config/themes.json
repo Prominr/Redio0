@@ -1,0 +1,168 @@
+{
+    "themes": [
+        {
+            "id": "dark",
+            "name": "Dark",
+            "description": "Default dark theme",
+            "author": "Redio Team",
+            "colors": {
+                "primary": "#6366f1",
+                "secondary": "#8b5cf6",
+                "background": "#0f172a",
+                "surface": "#1e293b",
+                "text": "#f1f5f9",
+                "textSecondary": "#94a3b8",
+                "success": "#10b981",
+                "warning": "#f59e0b",
+                "danger": "#ef4444",
+                "info": "#3b82f6"
+            },
+            "isDefault": true
+        },
+        {
+            "id": "light",
+            "name": "Light",
+            "description": "Light theme for daytime use",
+            "author": "Redio Team",
+            "colors": {
+                "primary": "#3b82f6",
+                "secondary": "#8b5cf6",
+                "background": "#f8fafc",
+                "surface": "#ffffff",
+                "text": "#1e293b",
+                "textSecondary": "#64748b",
+                "success": "#10b981",
+                "warning": "#f59e0b",
+                "danger": "#ef4444",
+                "info": "#3b82f6"
+            }
+        },
+        {
+            "id": "blue",
+            "name": "Blue Ocean",
+            "description": "Deep blue theme",
+            "author": "Redio Team",
+            "colors": {
+                "primary": "#2563eb",
+                "secondary": "#1d4ed8",
+                "background": "#0f172a",
+                "surface": "#1e293b",
+                "text": "#f1f5f9",
+                "textSecondary": "#94a3b8",
+                "success": "#10b981",
+                "warning": "#f59e0b",
+                "danger": "#ef4444",
+                "info": "#3b82f6"
+            }
+        },
+        {
+            "id": "purple",
+            "name": "Purple Haze",
+            "description": "Purple gradient theme",
+            "author": "Redio Team",
+            "colors": {
+                "primary": "#8b5cf6",
+                "secondary": "#7c3aed",
+                "background": "#1e1b4b",
+                "surface": "#312e81",
+                "text": "#f5f3ff",
+                "textSecondary": "#c4b5fd",
+                "success": "#10b981",
+                "warning": "#f59e0b",
+                "danger": "#ef4444",
+                "info": "#8b5cf6"
+            }
+        },
+        {
+            "id": "green",
+            "name": "Forest Green",
+            "description": "Nature-inspired green theme",
+            "author": "Redio Team",
+            "colors": {
+                "primary": "#10b981",
+                "secondary": "#059669",
+                "background": "#064e3b",
+                "surface": "#065f46",
+                "text": "#d1fae5",
+                "textSecondary": "#a7f3d0",
+                "success": "#10b981",
+                "warning": "#f59e0b",
+                "danger": "#ef4444",
+                "info": "#0ea5e9"
+            }
+        },
+        {
+            "id": "red",
+            "name": "Crimson Red",
+            "description": "Bold red theme",
+            "author": "Redio Team",
+            "colors": {
+                "primary": "#dc2626",
+                "secondary": "#b91c1c",
+                "background": "#450a0a",
+                "surface": "#7f1d1d",
+                "text": "#fecaca",
+                "textSecondary": "#fca5a5",
+                "success": "#10b981",
+                "warning": "#f59e0b",
+                "danger": "#ef4444",
+                "info": "#3b82f6"
+            }
+        },
+        {
+            "id": "cyberpunk",
+            "name": "Cyberpunk",
+            "description": "Neon cyberpunk theme",
+            "author": "Redio Team",
+            "colors": {
+                "primary": "#00ff9d",
+                "secondary": "#00b8ff",
+                "background": "#0a0a0f",
+                "surface": "#1a1a2e",
+                "text": "#ffffff",
+                "textSecondary": "#b3b3cc",
+                "success": "#00ff9d",
+                "warning": "#ffcc00",
+                "danger": "#ff0055",
+                "info": "#00b8ff"
+            }
+        },
+        {
+            "id": "midnight",
+            "name": "Midnight",
+            "description": "Pure black theme",
+            "author": "Redio Team",
+            "colors": {
+                "primary": "#60a5fa",
+                "secondary": "#3b82f6",
+                "background": "#000000",
+                "surface": "#111111",
+                "text": "#ffffff",
+                "textSecondary": "#aaaaaa",
+                "success": "#10b981",
+                "warning": "#f59e0b",
+                "danger": "#ef4444",
+                "info": "#60a5fa"
+            }
+        },
+        {
+            "id": "sunset",
+            "name": "Sunset",
+            "description": "Warm sunset colors",
+            "author": "Redio Team",
+            "colors": {
+                "primary": "#f97316",
+                "secondary": "#ea580c",
+                "background": "#431407",
+                "surface": "#7c2d12",
+                "text": "#ffedd5",
+                "textSecondary": "#fed7aa",
+                "success": "#10b981",
+                "warning": "#f59e0b",
+                "danger": "#ef4444",
+                "info": "#3b82f6"
+            }
+        }
+    ],
+    "customThemes": []
+}

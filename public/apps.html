@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apps - Redio</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/themes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .apps-page {
+            padding: 20px;
+        }
+        
+        .apps-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .apps-header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .apps-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .app-card {
+            background: var(--surface-color);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            border-color: var(--primary-color);
+        }
+        
+        .app-icon {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .app-icon i {
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .app-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--success-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .app-content {
+            padding: 20px;
+        }
+        
+        .app-title {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+        
+        .app-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .app-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+        }
+        
+        .app-category {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success-color);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+        
+        .app-size {
+            color: var(--text-secondary);
+        }
+        
+        .app-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .open-btn {
+            flex: 1;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .open-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+        }
+        
+        .app-tab-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .app-tab-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary-color);
+        }
+        
+        .apps-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .app-category-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .app-category-btn:hover,
+        .app-category-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+        }
+        
+        .empty-state i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+        
+        @media (max-width: 768px) {
+            .apps-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .apps-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .apps-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="apps-page">
+        <div class="apps-header">
+            <h1><i class="fas fa-th"></i> Applications</h1>
+            
+            <div class="apps-controls">
+                <div class="search-box">
+                    <input type="text" id="appsSearch" placeholder="Search apps...">
+                    <i class="fas fa-search"></i>
+                </div>
+                
+                <button class="btn primary" onclick="window.location.href='/'">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </button>
+            </div>
+        </div>
+        
+        <div class="apps-categories" id="appsCategories">
+            <!-- App categories will be loaded dynamically -->
+        </div>
+        
+        <div class="apps-grid" id="appsGrid">
+            <!-- Apps will be loaded dynamically -->
+        </div>
+        
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <i class="fas fa-th"></i>
+            <h3>No apps found</h3>
+            <p>Try adjusting your search or filter</p>
+        </div>
+        
+        <div class="featured-section">
+            <div class="section-header">
+                <h2><i class="fas fa-star"></i> Recommended Apps</h2>
+            </div>
+            <div class="apps-grid" id="recommendedApps">
+                <!-- Recommended apps will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Apps page functionality
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const response = await fetch('/api/apps');
+                const apps = await response.json();
+                
+                displayApps(apps);
+                setupSearch(apps);
+                setupCategories(apps);
+            } catch (error) {
+                console.error('Error loading apps:', error);
+                showError();
+            }
+        });
+        
+        function displayApps(apps, containerId = 'appsGrid') {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            if (apps.length === 0) {
+                document.getElementById('emptyState').style.display = 'block';
+                container.innerHTML = '';
+                return;
+            }
+            
+            document.getElementById('emptyState').style.display = 'none';
+            
+            container.innerHTML = apps.map(app => `
+                <div class="app-card" data-category="${app.category || 'Other'}" data-name="${app.name.toLowerCase()}">
+                    <div class="app-icon">
+                        <i class="${app.icon || 'fas fa-app-store'}"></i>
+                        <span class="app-badge">App</span>
+                    </div>
+                    <div class="app-content">
+                        <h3 class="app-title">${app.name}</h3>
+                        <p class="app-description">${app.description || 'Useful application'}</p>
+                        <div class="app-meta">
+                            <span class="app-category">${app.category || 'Utility'}</span>
+                            <span class="app-size">Free</span>
+                        </div>
+                        <div class="app-actions">
+                            <button class="open-btn" onclick="openApp('${app.url}', '${app.name}')">
+                                <i class="fas fa-external-link-alt"></i> Open
+                            </button>
+                            <button class="app-tab-btn" onclick="addAppToTab('${app.name}', '${app.url}')" title="Open in New Tab">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function setupSearch(apps) {
+            const searchInput = document.getElementById('appsSearch');
+            if (!searchInput) return;
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase().trim();
+                
+                if (searchTerm === '') {
+                    displayApps(apps);
+                    return;
+                }
+                
+                const filteredApps = apps.filter(app => 
+                    app.name.toLowerCase().includes(searchTerm) ||
+                    (app.description && app.description.toLowerCase().includes(searchTerm)) ||
+                    (app.category && app.category.toLowerCase().includes(searchTerm))
+                );
+                
+                displayApps(filteredApps);
+            });
+        }
+        
+        function setupCategories(apps) {
+            const categoriesContainer = document.getElementById('appsCategories');
+            if (!categoriesContainer) return;
+            
+            // Get unique categories
+            const categories = ['All', ...new Set(apps.map(app => app.category || 'Other'))];
+            
+            categoriesContainer.innerHTML = categories.map(category => `
+                <button class="app-category-btn" data-category="${category}">
+                    ${category}
+                </button>
+            `).join('');
+            
+            // Add event listeners
+            categoriesContainer.querySelectorAll('.app-category-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const category = this.dataset.category;
+                    
+                    // Update active state
+                    categoriesContainer.querySelectorAll('.app-category-btn').forEach(b => {
+                        b.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Filter apps
+                    if (category === 'All') {
+                        displayApps(apps);
+                    } else {
+                        const filteredApps = apps.filter(app => 
+                            (app.category || 'Other') === category
+                        );
+                        displayApps(filteredApps);
+                    }
+                });
+            });
+            
+            // Activate first category
+            if (categoriesContainer.firstElementChild) {
+                categoriesContainer.firstElementChild.classList.add('active');
+            }
+        }
+        
+        function openApp(url, name) {
+            // Use the main app's method if available
+            if (window.redio) {
+                window.redio.openApp(url);
+            } else {
+                // Fallback: open in new tab
+                window.open(url, '_blank');
+            }
+        }
+        
+        function addAppToTab(name, url) {
+            // Use tab manager if available
+            if (window.tabManager) {
+                window.tabManager.addAppTab({ name, url });
+                showToast(`${name} added to tabs`);
+            } else {
+                openApp(url, name);
+            }
+        }
+        
+        function showToast(message) {
+            // Simple toast notification
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: var(--surface-color);
+                color: var(--text-color);
+                padding: 12px 20px;
+                border-radius: 8px;
+                border-left: 4px solid var(--primary-color);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                z-index: 1000;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+        
+        function showError() {
+            const container = document.getElementById('appsGrid');
+            if (container) {
+                container.innerHTML = `
+                    <div class="error-state">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Failed to load apps</h3>
+                        <p>Please try again later</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // Add some CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+            .error-state {
+                text-align: center;
+                padding: 60px 20px;
+                color: var(--text-secondary);
+                grid-column: 1 / -1;
+            }
+            .error-state i {
+                font-size: 4rem;
+                color: var(--danger-color);
+                margin-bottom: 20px;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
